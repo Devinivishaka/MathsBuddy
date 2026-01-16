@@ -9,6 +9,14 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/purple_700</item>
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/light_gray</item>
+        <item name="colorSurface">@color/card_background</item>
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/purple_700</item>
+        <item name="android:textColorSecondary">@color/purple_500</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
