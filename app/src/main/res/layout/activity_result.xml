@@ -16,7 +16,8 @@
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="@string/result_title"
-        android:textAppearance="?attr/textAppearanceHeadlineMedium"
+        android:textAppearance="?attr/textAppearanceHeadlineLarge"
+        android:textSize="26sp"
         android:textColor="@color/purple_700"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +70,8 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="@string/result_summary"
-            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textSize="18sp"
             android:textColor="@color/white"
             android:textStyle="bold" />
     </com.google.android.material.card.MaterialCardView>

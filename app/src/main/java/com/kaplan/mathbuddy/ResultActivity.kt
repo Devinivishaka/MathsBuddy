@@ -1,6 +1,7 @@
 package com.kaplan.mathbuddy
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -56,13 +57,14 @@ class ResultActivity : AppCompatActivity() {
             // Create content for the card
             val cardContent = LinearLayout(this)
             cardContent.orientation = LinearLayout.VERTICAL
-            cardContent.setPadding(24, 16, 24, 16)
+            val pad = (resources.displayMetrics.density * 20).toInt()
+            cardContent.setPadding(pad, pad / 2, pad, pad / 2)
 
             // Question number and text
             val questionText = TextView(this)
             questionText.text = "${i + 1}. ${getString(questions[i])}"
             questionText.setTextColor(ContextCompat.getColor(this, R.color.white))
-            questionText.textSize = 16f
+            questionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
             questionText.setTypeface(null, android.graphics.Typeface.BOLD)
             cardContent.addView(questionText)
 
@@ -70,15 +72,15 @@ class ResultActivity : AppCompatActivity() {
             val userAnswerText = TextView(this)
             userAnswerText.text = "Your answer: $user"
             userAnswerText.setTextColor(ContextCompat.getColor(this, R.color.white))
-            userAnswerText.textSize = 14f
-            userAnswerText.setPadding(0, 8, 0, 4)
+            userAnswerText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
+            userAnswerText.setPadding(0, (8 * resources.displayMetrics.density).toInt(), 0, (4 * resources.displayMetrics.density).toInt())
             cardContent.addView(userAnswerText)
 
             // Correct answer
             val correctAnswerText = TextView(this)
             correctAnswerText.text = "Correct answer: $correctAns"
             correctAnswerText.setTextColor(ContextCompat.getColor(this, R.color.white))
-            correctAnswerText.textSize = 14f
+            correctAnswerText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
             correctAnswerText.setTypeface(null, android.graphics.Typeface.BOLD)
             cardContent.addView(correctAnswerText)
 
@@ -86,9 +88,9 @@ class ResultActivity : AppCompatActivity() {
             val statusText = TextView(this)
             statusText.text = if (isCorrect) "✓ CORRECT" else "✗ INCORRECT"
             statusText.setTextColor(ContextCompat.getColor(this, R.color.white))
-            statusText.textSize = 12f
+            statusText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             statusText.setTypeface(null, android.graphics.Typeface.BOLD)
-            statusText.setPadding(0, 8, 0, 0)
+            statusText.setPadding(0, (8 * resources.displayMetrics.density).toInt(), 0, 0)
             cardContent.addView(statusText)
 
             card.addView(cardContent)
@@ -98,6 +100,8 @@ class ResultActivity : AppCompatActivity() {
         val percentage = if (questions.isNotEmpty()) (correct * 100) / questions.size else 0
 
         val summary = findViewById<TextView>(R.id.summary)
-        summary.text = "Score: $correct/$${questions.size} Correct   •   $percentage% Overall"
+        // Use resources and proper formatting
+        summary.text = getString(R.string.result_summary) + ": $correct/${questions.size} Correct   •   $percentage%"
+        summary.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
     }
 }
