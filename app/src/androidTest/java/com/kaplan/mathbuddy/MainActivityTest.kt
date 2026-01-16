@@ -27,10 +27,8 @@ class MainActivityTest {
         // Q5
         onView(withId(R.id.answer5)).perform(typeText("25"), closeSoftKeyboard())
 
-        // Click Show Result
         onView(withId(R.id.show_result_button)).perform(click())
 
-        // Check that the summary contains "100%"
         onView(withText(org.hamcrest.Matchers.containsString("100%"))).check(matches(isDisplayed()))
 
         scenario.close()

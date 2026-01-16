@@ -4,13 +4,11 @@ object QuizUtils {
 
     private val correctAnswers = listOf("97", "False", "56", "True", "25")
 
-    // Validate that all answers are non-empty
     fun validateAnswers(answers: List<String?>): Boolean {
         if (answers.size < correctAnswers.size) return false
         return answers.take(correctAnswers.size).all { !it.isNullOrBlank() }
     }
 
-    // Compute results list and counts
     fun computeResults(answers: List<String>): Pair<List<QuizResult>, Int> {
         val results = mutableListOf<QuizResult>()
         var correct = 0

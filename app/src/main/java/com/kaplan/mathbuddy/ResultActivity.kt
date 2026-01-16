@@ -11,7 +11,6 @@ import com.google.android.material.card.MaterialCardView
 
 class ResultActivity : AppCompatActivity() {
 
-    // Predefined correct answers
     private val correctAnswers = listOf("97", "False", "56", "True", "25")
     private val questions = listOf(
         R.string.question1,
@@ -100,7 +99,6 @@ class ResultActivity : AppCompatActivity() {
         val percentage = if (questions.isNotEmpty()) (correct * 100) / questions.size else 0
 
         val summary = findViewById<TextView>(R.id.summary)
-        // Use resources and proper formatting
         summary.text = getString(R.string.result_summary) + ": $correct/${questions.size} Correct   •   $percentage%"
         summary.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
     }

@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Gather answers; return null if validation fails
     private fun gatherAnswers(): ArrayList<String>? {
         val list = ArrayList<String>()
 
