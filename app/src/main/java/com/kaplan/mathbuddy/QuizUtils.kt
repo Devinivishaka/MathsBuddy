@@ -2,7 +2,7 @@ package com.kaplan.mathbuddy
 
 object QuizUtils {
 
-    private val correctAnswers = listOf("97", "False", "56", "True", "25")
+    private val correctAnswers = Questions.correctAnswers()
 
     // Validate that all answers are non-empty
     fun validateAnswers(answers: List<String?>): Boolean {
@@ -19,17 +19,11 @@ object QuizUtils {
             val correctAns = correctAnswers[i]
             val isCorrect = user.equals(correctAns, ignoreCase = true)
             if (isCorrect) correct++
+            val questionText = getQuestionText(i)
             results.add(
                 QuizResult(
                     questionIndex = i,
-                    questionText = when (i) {
-                        0 -> "What is 20 + 77?"
-                        1 -> "20 + 77 = 19, is the equation correct?"
-                        2 -> "What is 8 × 7?"
-                        3 -> "81 ÷ 9 = 8, is the equation correct?"
-                        4 -> "What is 12 + 13?"
-                        else -> ""
-                    },
+                    questionText = questionText,
                     userAnswer = user,
                     correctAnswer = correctAns,
                     isCorrect = isCorrect
@@ -37,6 +31,11 @@ object QuizUtils {
             )
         }
         return Pair(results, correct)
+    }
+
+    private fun getQuestionText(index: Int): String {
+        // Questions now stores text as strings; use the helper
+        return Questions.getQuestionText(index)
     }
 
     fun percentage(correct: Int, total: Int): Int {

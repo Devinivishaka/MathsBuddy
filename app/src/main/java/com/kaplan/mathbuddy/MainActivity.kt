@@ -15,7 +15,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.resetButton.setOnClickListener { resetInputs() }
+        // Generate randomized questions on start
+        Questions.randomize()
+        populateQuestions()
+
+        binding.resetButton.setOnClickListener {
+            // Randomize and clear inputs
+            Questions.randomize()
+            populateQuestions()
+            resetInputs()
+        }
 
         binding.showResultButton.setOnClickListener {
             val answers = gatherAnswers()
@@ -27,6 +36,15 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+
+    private fun populateQuestions() {
+        // Set question texts from Questions manager
+        binding.q1Text.text = Questions.getQuestionText(0)
+        binding.q2Text.text = Questions.getQuestionText(1)
+        binding.q3Text.text = Questions.getQuestionText(2)
+        binding.q4Text.text = Questions.getQuestionText(3)
+        binding.q5Text.text = Questions.getQuestionText(4)
     }
 
     // Gather answers; return null if validation fails

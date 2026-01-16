@@ -13,4 +13,11 @@
     <string name="enter_numeric_answer">Enter numeric answer</string>
     <string name="option_true">True</string>
     <string name="option_false">False</string>
+    <string name="back">Back</string>
+    <string name="label_your_answer">Your answer: %1$s</string>
+    <string name="label_correct_answer">Correct answer: %1$s</string>
+    <string name="question_with_number">%1$d. %2$s</string>
+    <string name="status_correct">✓ CORRECT</string>
+    <string name="status_incorrect">✗ INCORRECT</string>
+    <string name="summary_format">Correct: %1$d / %2$d   •   %3$d%%</string>
 </resources>

@@ -12,14 +12,7 @@ import com.google.android.material.card.MaterialCardView
 class ResultActivity : AppCompatActivity() {
 
     // Predefined correct answers
-    private val correctAnswers = listOf("97", "False", "56", "True", "25")
-    private val questions = listOf(
-        R.string.question1,
-        R.string.question2,
-        R.string.question3,
-        R.string.question4,
-        R.string.question5
-    )
+    private val correctAnswers = Questions.correctAnswers()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +26,8 @@ class ResultActivity : AppCompatActivity() {
         var correct = 0
         var incorrect = 0
 
-        for (i in questions.indices) {
+        // iterate using correctAnswers size (questions count)
+        for (i in correctAnswers.indices) {
             val user = answers.getOrNull(i) ?: ""
             val correctAns = correctAnswers[i]
             val isCorrect = user.equals(correctAns, ignoreCase = true)
@@ -60,9 +54,9 @@ class ResultActivity : AppCompatActivity() {
             val pad = (resources.displayMetrics.density * 20).toInt()
             cardContent.setPadding(pad, pad / 2, pad, pad / 2)
 
-            // Question number and text
+            // Question number and text - use Questions.getQuestionText
             val questionText = TextView(this)
-            questionText.text = "${i + 1}. ${getString(questions[i])}"
+            questionText.text = getString(R.string.question_with_number, i + 1, Questions.getQuestionText(i))
             questionText.setTextColor(ContextCompat.getColor(this, R.color.white))
             questionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
             questionText.setTypeface(null, android.graphics.Typeface.BOLD)
@@ -70,7 +64,7 @@ class ResultActivity : AppCompatActivity() {
 
             // User answer
             val userAnswerText = TextView(this)
-            userAnswerText.text = "Your answer: $user"
+            userAnswerText.text = getString(R.string.label_your_answer, user)
             userAnswerText.setTextColor(ContextCompat.getColor(this, R.color.white))
             userAnswerText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
             userAnswerText.setPadding(0, (8 * resources.displayMetrics.density).toInt(), 0, (4 * resources.displayMetrics.density).toInt())
@@ -78,7 +72,7 @@ class ResultActivity : AppCompatActivity() {
 
             // Correct answer
             val correctAnswerText = TextView(this)
-            correctAnswerText.text = "Correct answer: $correctAns"
+            correctAnswerText.text = getString(R.string.label_correct_answer, correctAns)
             correctAnswerText.setTextColor(ContextCompat.getColor(this, R.color.white))
             correctAnswerText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
             correctAnswerText.setTypeface(null, android.graphics.Typeface.BOLD)
@@ -86,7 +80,7 @@ class ResultActivity : AppCompatActivity() {
 
             // Status icon/text
             val statusText = TextView(this)
-            statusText.text = if (isCorrect) "✓ CORRECT" else "✗ INCORRECT"
+            statusText.text = if (isCorrect) getString(R.string.status_correct) else getString(R.string.status_incorrect)
             statusText.setTextColor(ContextCompat.getColor(this, R.color.white))
             statusText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             statusText.setTypeface(null, android.graphics.Typeface.BOLD)
@@ -97,11 +91,18 @@ class ResultActivity : AppCompatActivity() {
             resultList.addView(card)
         }
 
-        val percentage = if (questions.isNotEmpty()) (correct * 100) / questions.size else 0
+        val percentage = if (correctAnswers.isNotEmpty()) (correct * 100) / correctAnswers.size else 0
 
         val summary = findViewById<TextView>(R.id.summary)
         // Use resources and proper formatting
-        summary.text = getString(R.string.result_summary) + ": $correct/${questions.size} Correct   •   $percentage%"
+        summary.text = getString(R.string.summary_format, correct, correctAnswers.size, percentage)
         summary.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
+
+        // Back button wiring
+        val backButton = findViewById<com.google.android.material.button.MaterialButton>(R.id.back_button)
+        backButton.text = getString(R.string.back)
+        backButton.setOnClickListener {
+            finish()
+        }
     }
 }
