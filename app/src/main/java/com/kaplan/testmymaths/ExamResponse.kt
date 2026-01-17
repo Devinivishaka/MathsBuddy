@@ -33,7 +33,6 @@ data class ExamResponse(
     }
 }
 
-// Utility extension functions
 fun List<ExamResponse>.countAccurate(): Int = count { it.isAccurate }
 
 fun List<ExamResponse>.countInaccurate(): Int = count { !it.isAccurate }
