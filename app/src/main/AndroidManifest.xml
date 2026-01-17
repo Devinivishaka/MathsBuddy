@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestMyMaths">
         <activity
-            android:name=".ResultActivity"
+            android:name=".ScoreDisplayActivity"
             android:exported="false"
             android:label="@string/result_title"
             android:theme="@style/Theme.TestMyMaths" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MathExamActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TestMyMaths">

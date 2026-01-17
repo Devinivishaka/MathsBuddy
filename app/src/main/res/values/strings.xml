@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">TestMyMaths</string>
-    <string name="reset">RESET</string>
-    <string name="show_result">SHOW RESULT</string>
-    <string name="question1">What is 20 + 77?</string>
-    <string name="question2">20 + 77 = 19, is the equation correct?</string>
-    <string name="question3">What is 8 × 7?</string>
-    <string name="question4">81 ÷ 9 = 8, is the equation correct?</string>
-    <string name="question5">What is 12 + 13?</string>
-    <string name="toast_fill_all">Please answer all questions before proceeding.</string>
-    <string name="result_title">Result</string>
-    <string name="result_summary">Summary</string>
-    <string name="enter_numeric_answer">Enter numeric answer</string>
-    <string name="option_true">True</string>
-    <string name="option_false">False</string>
+    <string name="reset">CLEAR ALL</string>
+    <string name="show_result">EVALUATE</string>
+    <string name="question1">What is 15 + 34?</string>
+    <string name="question2">15 + 34 = 48, is the equation correct?</string>
+    <string name="question3">What is 6 × 9?</string>
+    <string name="question4">72 ÷ 8 = 9, is the equation correct?</string>
+    <string name="question5">What is 18 + 27?</string>
+    <string name="toast_fill_all">Complete all problems before evaluation.</string>
+    <string name="result_title">Final Score</string>
+    <string name="result_summary">Performance</string>
+    <string name="enter_numeric_answer">Enter numerical solution</string>
+    <string name="option_true">Correct</string>
+    <string name="option_false">Incorrect</string>
 </resources>

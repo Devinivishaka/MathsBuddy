@@ -10,22 +10,22 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class MathExamActivityTest {
 
     @Test
     fun fullFlow_displaysPercentage() {
-        val scenario = ActivityScenario.launch(MainActivity::class.java)
+        val scenario = ActivityScenario.launch(MathExamActivity::class.java)
 
         // Fill Q1
-        onView(withId(R.id.answer1)).perform(typeText("97"), closeSoftKeyboard())
-        // Q2 - False
+        onView(withId(R.id.answer1)).perform(typeText("49"), closeSoftKeyboard())
+        // Q2 - Incorrect
         onView(withId(R.id.q2_false)).perform(click())
         // Q3
-        onView(withId(R.id.answer3)).perform(typeText("56"), closeSoftKeyboard())
-        // Q4 - True
+        onView(withId(R.id.answer3)).perform(typeText("54"), closeSoftKeyboard())
+        // Q4 - Correct
         onView(withId(R.id.q4_true)).perform(click())
         // Q5
-        onView(withId(R.id.answer5)).perform(typeText("25"), closeSoftKeyboard())
+        onView(withId(R.id.answer5)).perform(typeText("45"), closeSoftKeyboard())
 
         onView(withId(R.id.show_result_button)).perform(click())
 

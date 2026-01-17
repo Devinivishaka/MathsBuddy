@@ -5,31 +5,31 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class QuizUtilsTest {
+class CalculationEngineTest {
 
     @Test
-    fun validateAnswers_allFilled_returnsTrue() {
-        val answers = listOf("97", "False", "56", "True", "25")
-        assertTrue(QuizUtils.validateAnswers(answers))
+    fun verifyCompleteness_allFilled_returnsTrue() {
+        val responses = listOf("49", "Incorrect", "54", "Correct", "45")
+        assertTrue(CalculationEngine.verifyCompleteness(responses))
     }
 
     @Test
-    fun validateAnswers_missing_returnsFalse() {
-        val answers = listOf("97", "", "56", "True", "25")
-        assertFalse(QuizUtils.validateAnswers(answers))
+    fun verifyCompleteness_missing_returnsFalse() {
+        val responses = listOf("49", "", "54", "Correct", "45")
+        assertFalse(CalculationEngine.verifyCompleteness(responses))
     }
 
     @Test
-    fun computeResults_scoreCalculation() {
-        val answers = listOf("97", "False", "56", "True", "25")
-        val (results, correct) = QuizUtils.computeResults(answers)
+    fun evaluateResponses_scoreCalculation() {
+        val responses = listOf("49", "Incorrect", "54", "Correct", "45")
+        val (results, correct) = CalculationEngine.evaluateResponses(responses)
         assertEquals(5, results.size)
         assertEquals(5, correct)
     }
 
     @Test
-    fun percentage_calculation() {
-        val p = QuizUtils.percentage(4, 5)
-        assertEquals(80, p)
+    fun calculateSuccessRate_calculation() {
+        val rate = CalculationEngine.calculateSuccessRate(4, 5)
+        assertEquals(80, rate)
     }
 }
