@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MathBuddy"
+rootProject.name = "TestMyMaths"
 include(":app")
  

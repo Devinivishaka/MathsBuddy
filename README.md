@@ -1,10 +1,10 @@
-# MathBuddy
+# TestMyMaths
 
 Small Android project containing unit tests and instrumentation (Espresso) tests.
 
 ## Overview
 
-This repository is an Android app named MathBuddy. It includes local JVM unit tests under `app/src/test` and instrumented Android tests under `app/src/androidTest`.
+This repository is an Android app named TestMyMaths. It includes local JVM unit tests under `app/src/test` and instrumented Android tests under `app/src/androidTest`.
 
 This README explains how to build the project and run tests from PowerShell on Windows (the developer's environment), including the PowerShell-specific quoting/escaping for Gradle properties that contain `#`.
 
@@ -58,16 +58,16 @@ PowerShell note: `#` starts a comment, so when passing a test class/method via G
 
 ```powershell
 # Run a single test class (quote the whole -P argument)
-.\gradlew.bat connectedDebugAndroidTest "-Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.mathbuddy.MainActivityTest"
+.\gradlew.bat connectedDebugAndroidTest "-Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.TestMyMaths.MainActivityTest"
 
 # Run a single test method (quote the whole -P argument)
-.\gradlew.bat connectedDebugAndroidTest "-Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.mathbuddy.MainActivityTest#fullFlow_displaysPercentage"
+.\gradlew.bat connectedDebugAndroidTest "-Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.TestMyMaths.MainActivityTest#fullFlow_displaysPercentage"
 
 # Or escape the # with PowerShell's backtick (less readable)
-.\gradlew.bat connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.mathbuddy.MainActivityTest`#fullFlow_displaysPercentage
+.\gradlew.bat connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.TestMyMaths.MainActivityTest`#fullFlow_displaysPercentage
 
 # Alternative: use single quotes around the property value
-.\gradlew.bat connectedDebugAndroidTest '-Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.mathbuddy.MainActivityTest#fullFlow_displaysPercentage'
+.\gradlew.bat connectedDebugAndroidTest '-Pandroid.testInstrumentationRunnerArguments.class=com.kaplan.TestMyMaths.MainActivityTest#fullFlow_displaysPercentage'
 ```
 
 Instrumented test reports are written to:
@@ -80,7 +80,7 @@ And device logs and Gradle output will show test run details.
 
 ## File references (useful tests)
 
-- Unit test example: `app/src/test/java/com/kaplan/mathbuddy/QuizUtilsTest.kt`
+- Unit test example: `app/src/test/java/com/kaplan/TestMyMaths/QuizUtilsTest.kt`
 - Instrumented test example: `app/src/androidTest/java/...` (search that folder for `*Test.kt` classes)
 
 ## Troubleshooting

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MathBuddy</string>
+    <string name="app_name">TestMyMaths</string>
     <string name="reset">RESET</string>
     <string name="show_result">SHOW RESULT</string>
     <string name="question1">What is 20 + 77?</string>

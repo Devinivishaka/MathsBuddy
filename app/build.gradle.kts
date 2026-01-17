@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.kaplan.mathbuddy"
+    namespace = "com.kaplan.testmymaths"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.kaplan.mathbuddy"
+        applicationId = "com.kaplan.testmymaths"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -35,6 +35,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        dataBinding = true
     }
 }
 
